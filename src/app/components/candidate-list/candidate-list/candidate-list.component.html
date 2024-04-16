@@ -1,0 +1,34 @@
+<div>
+    <div class="submit-form">
+        <div class="zf-templateWrapper">
+          <h2 class="zf-frmTitle">Review Audio Answers of candidate</h2>
+          <p class="zf-frmDesc">Enter candidate id to fetch audio answers as per questions</p>
+          <div class="zf-clearBoth"></div>
+        </div>
+      <div class="form-group">
+        <label for="id">Candidate Id</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          required
+          [(ngModel)]="audiolist.candidateId"
+          name="id"
+        />
+      </div>
+  
+      <button (click)="getAllAudioList(audiolist.candidateId)" class="btn btn-success">Submit</button>
+
+      <div class="submit-form">
+        @if (submitted) {
+            <h3>Audio Answers for Candidate</h3>
+                <ul>
+                <li *ngFor="let name of audiolist.name; let i = index">
+                    <a href="" (click)="playAudio(name)" onclick="return false">{{'Question'}}{{  i + 1 }} - {{ name }}</a>
+                </li>
+                </ul>
+        }
+      </div>
+      
+    </div>
+</div>

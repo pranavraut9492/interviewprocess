@@ -1,0 +1,145 @@
+ <div>
+    <div class="submit-form">
+      @if (!isThankYou) {
+      @if (!submitted) {
+        <div class="zf-templateWrapper">
+          <ul class="zf-tempHeadBdr"><li class="zf-tempHeadContBdr"><h2 class="zf-frmTitle"><em>Candidate Registration Details</em></h2>
+          <p class="zf-frmDesc">Enter your candidate details as per application form and enter exact student id received from university</p>
+          <div class="zf-clearBoth"></div></li></ul>
+        </div>
+      <div class="form-group">
+        <label for="id">Candidate Id</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          required
+          [(ngModel)]="candidate.id"
+          name="id"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          class="form-control"
+          id="firstName"
+          required
+          [(ngModel)]="candidate.firstName"
+          name="firstName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          class="form-control"
+          id="lastName"
+          required
+          [(ngModel)]="candidate.lastName"
+          name="lastName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Email">Email</label>
+        <input
+          class="form-control"
+          id="Email"
+          required
+          [(ngModel)]="candidate.email"
+          name="Email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="course">course</label>
+        <input
+          class="form-control"
+          id="course"
+          required
+          [(ngModel)]="candidate.course"
+          name="course"
+        />
+      </div>
+  
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+      } @else {
+        <div class="zf-templateWrapper">
+          <ul class="zf-tempHeadBdr"><li class="zf-tempHeadContBdr"><h2 class="zf-frmTitle"><em>Candidate Interview Shield</em></h2>
+          <p class="zf-frmDesc">Please read and answer each question by clicking record your audio and stop the recording will save the audio</p>
+          <div class="zf-clearBoth"></div></li></ul>
+          
+          <div class="zf-subContWrap zf-topAlign"><ul>
+
+            <li class="zf-tempFrmWrapper zf-name zf-namelarge"><label class="zf-labelName"> 
+              Interview Questions
+              </label>
+              <div 
+              class="zf-tempContDiv zf-twoType"  
+              >
+              <div
+              class="zf-nameWrapper"  
+              >
+              <div class="form-group">
+                <label for="id">Candidate Id</label>
+                <input disabled="disabled" placeholder="Candidate Id"
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  required
+                  [(ngModel)]="candidate.id"
+                  name="id"
+                />
+              </div>
+              <div>
+                <label class="zf-tempFrmWrapper zf-name zf-namelarge">Please tell us about yourself</label> <br>
+                <button class="zf-submitColorAudio" (click)="startRecording()">Start Recording</button>
+                <button class="zf-submitColorAudio" (click)="stopRecording(candidate.id+'_'+1)">Stop Recording</button>
+              </div>
+          
+            <br><div>
+              <label class="zf-tempFrmWrapper zf-name zf-namelarge">Please ellaborate your academics and professional(if any) background</label> <br>
+              <button class="zf-submitColorAudio" (click)="startRecording()">Start Recording</button>
+                <button class="zf-submitColorAudio" (click)="stopRecording(candidate.id+'_'+2)">Stop Recording</button>
+              <audio class="zf-submitColorAudio" id="audioPlayer" controls style="display: none;"></audio>
+            </div>
+              
+            <br><div>
+              <label class="zf-tempFrmWrapper zf-name zf-namelarge">Why you want to come to United Kingdom</label> <br>
+              <button class="zf-submitColorAudio" (click)="startRecording()">Start Recording</button>
+              <button class="zf-submitColorAudio" (click)="stopRecording(candidate.id+'_'+3)">Stop Recording</button>
+              <audio class="zf-submitColorAudio" id="audioPlayer" controls style="display: none;"></audio>
+            </div>
+              
+            <br><div>
+              <label class="zf-tempFrmWrapper zf-name zf-namelarge">What is course and modules your going to pursue ahead in UK</label> <br>
+              <button class="zf-submitColorAudio" (click)="startRecording()">Start Recording</button>
+              <button class="zf-submitColorAudio" (click)="stopRecording(candidate.id+'_'+4)">Stop Recording</button>
+              <audio class="zf-submitColorAudio" id="audioPlayer" controls style="display: none;"></audio>
+            </div>
+              
+            <br><div>
+              <label class="zf-tempFrmWrapper zf-name zf-namelarge">Why do you thing United Kingdom is better than your home country and other countries around world</label> <br>
+              <button class="zf-submitColorAudio" (click)="startRecording()">Start Recording</button>
+              <button class="zf-submitColorAudio" (click)="stopRecording(candidate.id+'_'+5)">Stop Recording</button>
+              <audio class="zf-submitColorAudio" id="audioPlayer" controls style="display: none;"></audio>
+            </div>
+              <ul><li class="zf-fmFooter">
+                <button class="zf-submitColor" (click)="openThankYou()">Submit</button></li></ul></div></div>
+            </ul></div></div>
+      }
+    }@else {
+        <div class="zf-templateWidth">
+          <form action='thankyou.html' name='form' method='POST' onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();' accept-charset='UTF-8' enctype='multipart/form-data' id='form'><input type="hidden" name="zf_referrer_name" value="">
+      <input type="hidden" name="zf_redirect_url" value="">
+      <input type="hidden" name="zc_gad" value="">
+      <div class="zf-templateWrapper">
+      <ul class="zf-tempHeadBdr"><li class="zf-tempHeadContBdr"><h2 class="zf-frmTitleThankYou"><em>Thank You!</em></h2>
+      <p class="zf-frmDescThank">We have received your response. We will inform you through email.</p>
+      <div class="zf-clearBoth"></div></li></ul>
+      </div></form></div>
+      }
+    </div>
+  </div>
+  
